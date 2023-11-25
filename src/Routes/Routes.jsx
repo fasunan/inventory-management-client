@@ -5,6 +5,8 @@ import Root from "../Layout/Root";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import CreateShop from "../CreateShop";
+// import PrivateRoute from "./PrivateRoute";
   
 
   export const router = createBrowserRouter([
@@ -16,10 +18,11 @@ import Register from "../Pages/Register/Register";
             path: '/',
             element: <Home></Home>
         }, 
-        // {
-        //   path: 'menu', 
-        //   element: <Menu></Menu>
-        // },
+        {
+          path: 'createShop', 
+          // element: <PrivateRoute><CreateShop></CreateShop></PrivateRoute>
+          element: <CreateShop></CreateShop>
+        },
         // {
         //   path: 'order/:category',
         //   element: <Order></Order>

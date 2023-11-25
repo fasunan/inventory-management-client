@@ -1,8 +1,13 @@
+import AboutUs from "../AboutUs/AboutUs";
+import Banner from "../Banner/Banner";
+import Reviews from "../Reviews/Reviews";
 
 const Home = () => {
     return (
         <div>
-            <h2>this is Home</h2>
+            <Banner></Banner>
+            <AboutUs></AboutUs>
+            <Reviews></Reviews>
         </div>
     );
 };

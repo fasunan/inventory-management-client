@@ -4,7 +4,7 @@ const Reviews = () => {
     return (
         <div>
             <div className="mt-10">
-                <h2 className="text-4xl text-red-400 font-bold text-center mb-5">Reviews about AL-Moun Library</h2>
+                <h2 className="text-4xl text-red-400 font-bold text-center mb-5">Customer Reviews</h2>
 
 
             </div>

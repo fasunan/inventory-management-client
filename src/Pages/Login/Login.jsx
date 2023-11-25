@@ -15,16 +15,16 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState("");
 
-  const { userLogin, userGoogleLogin } = useContext(AuthContext);
+  const { signInUser, userGoogleLogin } = useContext(AuthContext);
 
   const handleLogIn = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password);
+    // console.log(email, password);
 
-    userLogin(email, password)
+    signInUser(email, password)
       .then((result) => {
         console.log(result.user);
         navigate(location?.state ? location.state : "/");

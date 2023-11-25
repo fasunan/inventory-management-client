@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../AuthProviders/AuthProviders";
+import { FaShoppingCart } from "react-icons/fa";
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -11,34 +12,36 @@ const NavBar = () => {
     }
 
     const navOptions = <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/login">Login</Link></li>
-        <li><Link to="/register">Register</Link></li>
+        <li><Link to="/">Home</Link></li>        
         <li><Link to="/createShop">Create Shop</Link></li>
-        {/* <li>
-            <Link to="/dashboard/cart">
-                <button className="btn">
-                    <FaShoppingCart className="mr-2"></FaShoppingCart>
-                    <div className="badge badge-secondary">+{cart.length}</div>
-                </button>
-            </Link>
-        </li> */}
+        <li><Link to="https://www.youtube.com/watch?v=T1wbLNvQImk" target="_blank" rel="noopener noreferrer">Watch Demo</Link></li>
+
         {
             user ? <>
-               <div className="flex gap-4 mr-4">
-               <span className=" font-semibold text-base mt-2 text-orange-500">{user?.displayName}</span>
-                
-                <span>
-                <div className="avatar">
-                    <div className="w-10 rounded-full ring ring-orange-500 ">
-                        <img src={user?.photoURL} />
-                    </div>
+
+                <li>
+                    <Link to="/dashboard/cart">
+                        <button className="btn btn-sm">
+                            <FaShoppingCart className="mr-2"></FaShoppingCart>
+                            <div className="badge badge-secondary">+{0}</div>
+                        </button>
+                    </Link>
+                </li>
+                <div className="flex gap-4 mr-4">
+                    <span className=" font-semibold text-base mt-2 text-orange-500">{user?.displayName}</span>
+
+                    <span>
+                        <div className="avatar">
+                            <div className="w-10 rounded-full ring ring-orange-500 ">
+                                <img src={user?.photoURL} />
+                            </div>
+                        </div>
+                    </span>
                 </div>
-                </span>
-               </div>
                 <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
             </> : <>
                 <li><Link to="/login">Login</Link></li>
+                <li><Link to="/register">Register</Link></li>
             </>
         }
     </>
