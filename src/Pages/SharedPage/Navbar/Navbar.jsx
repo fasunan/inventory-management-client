@@ -20,7 +20,7 @@ const NavBar = () => {
             user ? <>
 
                 <li>
-                    <Link to="/dashboard/cart">
+                    <Link to="/dashboard">
                         <button className="btn btn-sm">
                             <FaShoppingCart className="mr-2"></FaShoppingCart>
                             <div className="badge badge-secondary">+{0}</div>
