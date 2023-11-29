@@ -7,8 +7,6 @@ import { useLoaderData } from "react-router-dom";
 const Products = () => {
     const shopInfo = useLoaderData();
 
-    // console.log(shopInfo);
-    // console.log(shopInfo[0]._id);
 
     const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KAY;
     const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -34,24 +32,9 @@ const Products = () => {
 
         // Use Axios to upload the image to ImgBB
         const response = await axios.post(image_hosting_api, formData);
-
-        // Extract the image URL from the response
         const imageUrl = response.data.data.url;
 
         console.log(imageUrl)
-
-        
-        //         Product Adding Functionality 
-
-        // On clicking on Add Product Button It will create the product object with
-        // ● All The Data from the form
-        // ● Shop-Id ( from the user database )
-        // ● SHop-Name( from the user database )
-        // ● user-Email ( from the user database / Firebase )
-        // ● SellingPrice
-        // ○ SellingPrice = Buying Price + (7.5% Tax) + (profit percentage)
-        // ● Product AddedDate (Product Adding Date)
-        // ● SaleCount (0)
 
 
         const productsInfo = {

@@ -11,6 +11,10 @@ import Dashboard from "../Layout/DashBoard";
 import ShopManager from "../DashBoardRoutes/ShopManager";
 import Products from "../DashBoardRoutes/Products";
 import Update from "../DashBoardRoutes/Update";
+import SalesProducts from "../DashBoardRoutes/Sales/SalesProducts";
+import CheckOut from "../DashBoardRoutes/CheckOut";
+import ManagerSalesSummary from "../DashBoardRoutes/Sales/ManagerSalesSummary";
+import Subscription from "../DashBoardRoutes/Sales/Subscription";
   
 
   export const router = createBrowserRouter([
@@ -45,6 +49,26 @@ import Update from "../DashBoardRoutes/Update";
           path: 'shopManager',
           element: <ShopManager></ShopManager>,
           loader:()=>fetch(`http://localhost:5000/products/`)
+        },
+        {
+          path: 'salesProducts',
+          element: <SalesProducts></SalesProducts>,
+          loader:()=>fetch(`http://localhost:5000/products/`)
+        },
+        {
+          path: 'salesSummary',
+          element: <ManagerSalesSummary></ManagerSalesSummary>,
+          // loader:()=>fetch(`http://localhost:5000/products/`)
+        },
+        {
+          path: 'subscription',
+          element: <Subscription></Subscription>,
+          
+        },
+        {
+          path: 'checkOutCart',
+          element: <CheckOut></CheckOut>,
+          loader: () => fetch(`http://localhost:5000/carts`)
         },
         {
           path: 'update/:id',

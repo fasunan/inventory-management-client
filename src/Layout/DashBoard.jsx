@@ -4,8 +4,6 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
     // const [cart] = useCart();
-
-    // TODO: get isAdmin value from the database
     // const [isAdmin] = useAdmin();
 
     return (
@@ -26,8 +24,23 @@ const Dashboard = () => {
                             <>
                                 <li>
                                     <NavLink to="/dashboard/shopManager">
-                                        {/* <FaHome></FaHome> */}
                                         Shop Manager</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/salesProducts">
+                                        Sales Collection</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/checkOutCart">
+                                        Check-Out Cart</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/salesSummary">
+                                        Manager Sales Summary</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/subscription">
+                                    subscription</NavLink>
                                 </li>
                                 
                             </>
