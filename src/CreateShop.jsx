@@ -3,20 +3,13 @@ import Swal from "sweetalert2";
 
 import useAuth from "./hooks/useAuth";
 
-
-
 const CreateShop = () => {
-    const {user}= useAuth();
-    
-
-    const ownerName=user?.displayName;
-    const ownerEmail=user?.email;
-
-
+  const { user } = useAuth();
+  const ownerName = user?.displayName;
+  const ownerEmail = user?.email;
 
   const handleCreateShop = (e) => {
     e.preventDefault();
-
     const form = e.target;
     const name = form.name.value;
     const logo = form.logo.value;
@@ -34,7 +27,6 @@ const CreateShop = () => {
     console.log(ShopInfo);
 
     // send data to server
-
     fetch("http://localhost:5000/shop", {
       method: "POST",
       headers: {
@@ -44,24 +36,52 @@ const CreateShop = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: "Shop Created Successfully",
-            icon: "success",
-            confirmButtonText: "Done",
-          });
+        if (data.acknowledged) {
+          console.log(data);
+          // update info of logged user
+          const productLimit = 3;
+          const role = 'manager'
+          const userUpdateInfo = {
+            name,
+            logo,
+            productLimit,
+            role
+          }
+
+          fetch(`http://localhost:5000/user/${ownerEmail}`, {
+            method: "PATCH",
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(userUpdateInfo)
+          })
+            .then(res => res.json())
+            .then(data => {
+              console.log(data);
+
+              if (data.modifiedCount > 0) {
+
+                Swal.fire({
+                  title: "Success!",
+                  text: "Shop Created Successfully",
+                  icon: "success",
+                  confirmButtonText: "Done",
+                });
+                // Clear the form fields
+                form.reset();
+              }
+            })
         }
       });
+
   };
   return (
     <div className="p-20">
       <div className="m-10 ">
         <h1 className="text-3xl font-bold text-center">Create Shop</h1>
         <p className="text-lg text-center">
-            <p>Name of Shop-Owner: {ownerName}</p>
-            <p>Email of Shop-Owner : {ownerEmail}</p>
+          <p>Name of Shop-Owner: {ownerName}</p>
+          <p>Email of Shop-Owner : {ownerEmail}</p>
         </p>
       </div>
       <div>
@@ -89,7 +109,7 @@ const CreateShop = () => {
                   className="input input-bordered input-primary w-full max-w-xs"
                 />
               </div>
-              
+
               <div>
                 <h2 className="text-xl font-bold text-red-400 mb-2">
                   Short description
@@ -104,14 +124,14 @@ const CreateShop = () => {
               </div>
 
               <div>
-            <h2 className="text-xl font-bold text-red-400 mb-2"> Shop Location</h2>
-            <input
-              type="text"
-              name="location"
-              placeholder="Shop Location"
-              className="input input-bordered input-primary w-full max-w-xs"
-            />
-          </div>
+                <h2 className="text-xl font-bold text-red-400 mb-2"> Shop Location</h2>
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Shop Location"
+                  className="input input-bordered input-primary w-full max-w-xs"
+                />
+              </div>
               <input
                 type="submit"
                 value="Create Shop"

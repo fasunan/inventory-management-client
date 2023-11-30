@@ -15,7 +15,7 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState("");
 
-  const { signInUser, userGoogleLogin } = useContext(AuthContext);
+  const { signInUser, googleSignIn } = useContext(AuthContext);
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ const Login = () => {
       });
   };
   const handleGoogleLogIn = () => {
-    userGoogleLogin()
+    googleSignIn()
       .then((result) => {
         console.log(result);
         navigate(location?.state ? location.state : "/");
@@ -110,7 +110,7 @@ const Login = () => {
 
               {logError && <p>{logError}</p>}
               {success && <p>{success}</p>}
-              <div></div>
+              
               <p className="text-pink-600">Or you can log in with </p>
               <div className="gap-4 font-serif flex text-base">
                 <button onClick={handleGoogleLogIn} className="btn w-full">

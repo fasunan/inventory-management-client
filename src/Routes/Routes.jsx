@@ -17,6 +17,7 @@ import ManagerSalesSummary from "../DashBoardRoutes/Sales/ManagerSalesSummary";
 import Subscription from "../DashBoardRoutes/Sales/Subscription";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Payment from "../DashBoardRoutes/Payment/Payment";
+import AllUsers from "../DashBoardRoutes/Admin/AllUsers";
   
 
   export const router = createBrowserRouter([
@@ -71,6 +72,12 @@ import Payment from "../DashBoardRoutes/Payment/Payment";
         {
           path: 'payments',
           element: <Payment></Payment>,
+          
+        },
+        {
+          path: 'allUsers',
+          element: <AllUsers></AllUsers>,
+          loader: () => fetch(`http://localhost:5000/user`)
           
         },
         {

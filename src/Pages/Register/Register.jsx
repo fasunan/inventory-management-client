@@ -7,6 +7,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProviders/AuthProviders";
+import SocialLogin from "../Login/SocialLogin";
 
 const auth = getAuth();
 
@@ -66,6 +67,7 @@ const Register = () => {
       .then((result) => {
         
         const user={email}
+
         fetch('http://localhost:5000/user', {
           method: 'POST',
           headers:{
@@ -182,6 +184,9 @@ const Register = () => {
                   <button className=" btn btn-primary text-red-400 text-2xl font-serif rounded bg-gradient-to-r from-sky-900 via-indigo-900 to-purple-900">
                     Sign Up
                   </button>
+                </div>
+                <div>
+                  <SocialLogin></SocialLogin>
                 </div>
                 <p className="text-slate-800 font-medium">
               Already Have an Account? please

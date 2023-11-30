@@ -82,9 +82,9 @@ const PaymentCheckOut = () => {
             console.log('confirm error')
         }
         else {
-            console.log('payment intent', paymentIntent)
+            // console.log('payment intent', paymentIntent)
             if (paymentIntent.status === 'succeeded') {
-                console.log('transaction id', paymentIntent.id);
+                // console.log('transaction id', paymentIntent.id);
                 setTransactionId(paymentIntent.id);
 
                 // now save the payment in the database
@@ -105,7 +105,7 @@ const PaymentCheckOut = () => {
                     });
                 
                     const data = await response.json();
-                    console.log('payment saved', data);
+                    // console.log('payment saved', data);
                 
                     if (data?.paymentResult?.insertedId) {
                         Swal.fire({
