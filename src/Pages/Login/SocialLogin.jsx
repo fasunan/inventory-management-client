@@ -17,7 +17,7 @@ const SocialLogin = () => {
                 email: result.user?.email,
                 name: result.user?.displayName
             }
-            fetch('http://localhost:5000/user', {
+            fetch('https://inventory-managment-sarver.vercel.app/user', {
                 method: 'POST',
                 headers:{
                   'content-type' : 'application/json'

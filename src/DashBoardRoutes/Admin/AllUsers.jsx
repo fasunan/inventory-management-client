@@ -22,9 +22,9 @@ const AllUsers = () => {
                                 </th>
                                 <th>Image</th>
                                 <th>Name</th>
-                                <th>Quantity</th>
-                                <th>Sale Count</th>
-                                <th>Action</th>
+                                <th>Email</th>
+                                <th>Shop Name</th>
+                                <th>Role</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,7 +37,7 @@ const AllUsers = () => {
                                         <div className="flex item-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={user.imageUrl} alt="Avatar Tailwind CSS Component" />
+                                                    <img src={user.photo} alt="Avatar Tailwind CSS Component" />
                                                 </div>
                                             </div>
                                         </div>
@@ -45,18 +45,11 @@ const AllUsers = () => {
                                     <td>
                                         {user.name}
                                     </td>
-                                    <td>{user.quantity}</td>
-                                    <td>{user.saleCount}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.shopName}</td>
+                                    <td>{user.role}</td>
                                     <th>
-                                        {/* <button
-                      onClick={() => handleDelete(user._id)}
-                      className="btn btn-ghost btn-lg"> Delete
-                      <FaTrashAlt className="text-red-600"></FaTrashAlt>
-                    </button>
-                    <Link to={`/dashboard/update/${user._id}`}> <button
-                      className="btn btn-ghost btn-lg"> Update
-                      <GrUpdate className="text-red-600"></GrUpdate>
-                    </button></Link> */}
+                                        
                                     </th>
                                 </tr>)
                             }

@@ -58,7 +58,7 @@ const Products = () => {
 
         // send data to server
 
-        fetch("http://localhost:5000/products", {
+        fetch("https://inventory-managment-sarver.vercel.app/products", {
           method: "POST",
           headers: {
             "content-type": "application/json",

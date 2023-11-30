@@ -27,7 +27,7 @@ const CreateShop = () => {
     console.log(ShopInfo);
 
     // send data to server
-    fetch("http://localhost:5000/shop", {
+    fetch("https://inventory-managment-sarver.vercel.app/shop", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -38,17 +38,21 @@ const CreateShop = () => {
       .then((data) => {
         if (data.acknowledged) {
           console.log(data);
-          // update info of logged user
-          const productLimit = 3;
-          const role = 'manager'
-          const userUpdateInfo = {
-            name,
-            logo,
-            productLimit,
-            role
-          }
+          
+        }
+        
+      });
 
-          fetch(`http://localhost:5000/user/${ownerEmail}`, {
+      // update info of logged user
+      const productLimit = 3;
+      const role = 'manager'
+      const userUpdateInfo = {
+        name,
+        logo,
+        productLimit,
+        role
+      }
+      fetch(`https://inventory-managment-sarver.vercel.app/updateUser/${ownerEmail}`, {
             method: "PATCH",
             headers: {
               'content-type': 'application/json'
@@ -71,8 +75,6 @@ const CreateShop = () => {
                 form.reset();
               }
             })
-        }
-      });
 
   };
   return (

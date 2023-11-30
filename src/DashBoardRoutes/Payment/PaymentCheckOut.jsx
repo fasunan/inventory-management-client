@@ -22,7 +22,7 @@ const PaymentCheckOut = () => {
     useEffect(() => {
         console.log(selectedPlan, productLimit);
         if (selectedPlan && productLimit) {
-            fetch('http://localhost:5000/create-payment-intent', {
+            fetch('https://inventory-managment-sarver.vercel.app/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ const PaymentCheckOut = () => {
                 }
 
                 try {
-                    const response = await fetch('http://localhost:5000/payments', {
+                    const response = await fetch('https://inventory-managment-sarver.vercel.app/payments', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

@@ -55,7 +55,7 @@ const Update = () => {
         console.log(updateInfo);
 
         // send data to server
-        fetch(`http://localhost:5000/products/${_id}`, {
+        fetch(`https://inventory-managment-sarver.vercel.app/products/${_id}`, {
       method: "PUT",
       headers: {
         'content-type': 'application/json'
@@ -78,7 +78,7 @@ const Update = () => {
         }
       })
 
-        // fetch(`http://localhost:5000/products/${_id}`, {
+        // fetch(`https://inventory-managment-sarver.vercel.app/products/${_id}`, {
         //   method: "PATCH",
         //   headers: {
         //     "content-type": "application/json",
