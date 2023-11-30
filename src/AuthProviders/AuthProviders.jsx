@@ -9,6 +9,9 @@ const auth = getAuth(app);
 const AuthProviders = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [selectedPlan, setSelectedPlan] = useState(null);
+    const [productLimit, setProductLimit] = useState(0);
+  
     const googleProvider = new GoogleAuthProvider();
 
 
@@ -56,7 +59,12 @@ const AuthProviders = ({ children }) => {
         signInUser,
         logOut,
         updateUserProfile,
-        googleSignIn
+        googleSignIn,
+        selectedPlan,
+        setSelectedPlan,
+        productLimit,
+        setProductLimit
+
     }
 
     return (

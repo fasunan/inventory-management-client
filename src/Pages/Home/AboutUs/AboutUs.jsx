@@ -1,6 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
 const AboutUs = () => {
+    useEffect(() => {
+        AOS.init();
+      }, []);
+    
+
+
     return (
         <div className="mt-36">
             <div>
@@ -16,7 +26,7 @@ const AboutUs = () => {
 
                     />
 
-                    <div className="hero-content flex-col lg:flex-row bg-black opacity-75">
+                    <div className="hero-content flex-col lg:flex-row bg-black opacity-75" data-aos="zoom-in" data-aos-duration="1000">
                         <div className='lg:w-1/2 relative'>
                             <img src="https://i.ibb.co/CzKtBb1/istockphoto-1460439032-612x612.jpg" className="w-3/4 rounded-lg shadow-2xl" />
 

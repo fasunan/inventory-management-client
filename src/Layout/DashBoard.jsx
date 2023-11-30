@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaHome,  } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 
@@ -8,6 +9,9 @@ const Dashboard = () => {
 
     return (
         <div className="flex">
+            <Helmet>
+                <title>Fashion Store || Dashboard</title>
+            </Helmet>
             {/* dashboard side bar */}
             <div className="w-64 min-h-screen bg-[#4796BD] mt-5">
                 <ul className="menu p-4">

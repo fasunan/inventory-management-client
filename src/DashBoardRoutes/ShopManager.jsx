@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaTrashAlt } from "react-icons/fa";
 import { GrUpdate } from "react-icons/gr";
 
@@ -39,6 +40,9 @@ const ShopManager = () => {
 
   return (
     <div>
+      <Helmet>
+                <title>Fashion Store || Manager</title>
+            </Helmet>
       <div>
         <div className="flex flex-col items-center border-2 border-sky-400 p-4">
           {allProducts.length === 0 ? (

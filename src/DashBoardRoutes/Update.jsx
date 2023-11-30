@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const Update = () => {
@@ -100,6 +101,9 @@ const Update = () => {
     }
     return (
         <div className="p-10">
+            <Helmet>
+                <title>Fashion Store || Update</title>
+            </Helmet>
             <div>
                 <h1 className="text-3xl font-bold text-center mb-8">Update  Product</h1>
             </div>

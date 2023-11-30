@@ -15,12 +15,15 @@ import SalesProducts from "../DashBoardRoutes/Sales/SalesProducts";
 import CheckOut from "../DashBoardRoutes/CheckOut";
 import ManagerSalesSummary from "../DashBoardRoutes/Sales/ManagerSalesSummary";
 import Subscription from "../DashBoardRoutes/Sales/Subscription";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Payment from "../DashBoardRoutes/Payment/Payment";
   
 
   export const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement:<ErrorPage></ErrorPage>,
       children: [
         {
             path: '/',
@@ -63,6 +66,11 @@ import Subscription from "../DashBoardRoutes/Sales/Subscription";
         {
           path: 'subscription',
           element: <Subscription></Subscription>,
+          
+        },
+        {
+          path: 'payments',
+          element: <Payment></Payment>,
           
         },
         {

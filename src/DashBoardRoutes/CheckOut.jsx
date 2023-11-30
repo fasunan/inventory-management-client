@@ -1,4 +1,5 @@
 import jsPDF from "jspdf";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -49,6 +50,9 @@ const CheckOut = () => {
 
     return (
         <div>
+          <Helmet>
+                <title>Fashion Store || CheckOut</title>
+            </Helmet>
       <h2 className="text-center text-sky-600 text-3xl font-bold">Your Added Products For Check-Out</h2>
       <div>
 
