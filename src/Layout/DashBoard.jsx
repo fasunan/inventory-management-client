@@ -2,9 +2,8 @@ import { Helmet } from "react-helmet-async";
 import { FaHome, } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 
-
 const Dashboard = () => {
-
+    
     const isAdmin = false;
 
     return (

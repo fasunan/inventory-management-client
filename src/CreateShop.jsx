@@ -7,17 +7,21 @@ const CreateShop = () => {
   const { user } = useAuth();
   const ownerName = user?.displayName;
   const ownerEmail = user?.email;
+  const shopId= user?.shopId;
+
+  const productLimit = 3;
 
   const handleCreateShop = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
+    const shopName = form.shopName.value;
     const logo = form.logo.value;
     const description = form.description.value;
     const location = form.location.value;
 
     const ShopInfo = {
-      name,
+      productLimit,
+      shopName,
       logo,
       description,
       ownerEmail,
@@ -27,7 +31,7 @@ const CreateShop = () => {
     console.log(ShopInfo);
 
     // send data to server
-    fetch("https://inventory-managment-sarver.vercel.app/shop", {
+    fetch("http://localhost:5000/shop", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -38,21 +42,22 @@ const CreateShop = () => {
       .then((data) => {
         if (data.acknowledged) {
           console.log(data);
+          // const shopId = data.insertedId;
           
         }
         
       });
 
       // update info of logged user
-      const productLimit = 3;
       const role = 'manager'
+
       const userUpdateInfo = {
-        name,
+        shopName,
         logo,
-        productLimit,
-        role
+        role,
+        shopId
       }
-      fetch(`https://inventory-managment-sarver.vercel.app/updateUser/${ownerEmail}`, {
+      fetch(`http://localhost:5000/updateUser/${ownerEmail}`, {
             method: "PATCH",
             headers: {
               'content-type': 'application/json'
@@ -92,10 +97,10 @@ const CreateShop = () => {
             {/*row */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pl-10">
               <div>
-                <h2 className="text-xl font-bold text-red-400 mb-2">Name</h2>
+                <h2 className="text-xl font-bold text-red-400 mb-2">Shop Name</h2>
                 <input
                   type="text"
-                  name="name"
+                  name="shopName"
                   placeholder="Shop Name"
                   className="input input-bordered input-primary w-full max-w-xs"
                 />

@@ -22,7 +22,7 @@ const PaymentCheckOut = () => {
     useEffect(() => {
         console.log(selectedPlan, productLimit);
         if (selectedPlan && productLimit) {
-            fetch('https://inventory-managment-sarver.vercel.app/create-payment-intent', {
+            fetch('http://localhost:5000/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,6 +74,7 @@ const PaymentCheckOut = () => {
                 billing_details: {
                     email: user?.email || 'anonymous',
                     name: user?.displayName || 'anonymous'
+            
                 }
             }
         })
@@ -92,11 +93,12 @@ const PaymentCheckOut = () => {
                     email: user.email,
                     transactionId: paymentIntent.id,
                     date: new Date(), // utc date convert. use moment js to 
-                    status: 'pending'
+                    status: 'pending', 
+                    plan: selectedPlan
                 }
 
                 try {
-                    const response = await fetch('https://inventory-managment-sarver.vercel.app/payments', {
+                    const response = await fetch('http://localhost:5000/payments', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

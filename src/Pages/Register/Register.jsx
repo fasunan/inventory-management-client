@@ -68,7 +68,7 @@ const Register = () => {
         
         const user={email, name}
 
-        fetch('https://inventory-managment-sarver.vercel.app/user', {
+        fetch('http://localhost:5000/user', {
           method: 'POST',
           headers:{
             'content-type' : 'application/json'

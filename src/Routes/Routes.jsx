@@ -52,17 +52,17 @@ import AllUsers from "../DashBoardRoutes/Admin/AllUsers";
         {
           path: 'shopManager',
           element: <ShopManager></ShopManager>,
-          loader:()=>fetch(`https://inventory-managment-sarver.vercel.app/products/`)
+          loader:()=>fetch(`http://localhost:5000/products/`)
         },
         {
           path: 'salesProducts',
           element: <SalesProducts></SalesProducts>,
-          loader:()=>fetch(`https://inventory-managment-sarver.vercel.app/products/`)
+          loader:()=>fetch(`http://localhost:5000/products/`)
         },
         {
           path: 'salesSummary',
           element: <ManagerSalesSummary></ManagerSalesSummary>,
-          // loader:()=>fetch(`https://inventory-managment-sarver.vercel.app/products/`)
+          // loader:()=>fetch(`http://localhost:5000/products/`)
         },
         {
           path: 'subscription',
@@ -77,23 +77,23 @@ import AllUsers from "../DashBoardRoutes/Admin/AllUsers";
         {
           path: 'allUsers',
           element: <AllUsers></AllUsers>,
-          loader: () => fetch(`https://inventory-managment-sarver.vercel.app/user`)
+          loader: () => fetch(`http://localhost:5000/user`)
           
         },
         {
           path: 'checkOutCart',
           element: <CheckOut></CheckOut>,
-          loader: () => fetch(`https://inventory-managment-sarver.vercel.app/carts`)
+          loader: () => fetch(`http://localhost:5000/carts`)
         },
         {
           path: 'update/:id',
           element: <Update></Update>,
-          loader:({params})=>fetch(`https://inventory-managment-sarver.vercel.app/products/${params.id}`)
+          loader:({params})=>fetch(`http://localhost:5000/products/${params.id}`)
         },
         {
           path: 'products',
           element: <Products></Products>,
-          loader: () => fetch(`https://inventory-managment-sarver.vercel.app/shop`)
+          loader: () => fetch(`http://localhost:5000/user`)
         }
       ]
     }

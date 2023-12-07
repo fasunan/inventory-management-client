@@ -24,7 +24,7 @@ const CheckOut = () => {
       };
     const handleGetPaid = async (productId) => {
         try {
-          const response = await fetch(`https://inventory-managment-sarver.vercel.app/getPaid/${productId}`, {
+          const response = await fetch(`http://localhost:5000/getPaid/${productId}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

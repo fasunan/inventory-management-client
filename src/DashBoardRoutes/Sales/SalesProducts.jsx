@@ -18,7 +18,7 @@ const SalesProducts = () => {
 
   const handleAddToCart =(product)=>{
     
-    fetch(`https://inventory-managment-sarver.vercel.app/carts/${product._id}`, {
+    fetch(`http://localhost:5000/carts/${product._id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

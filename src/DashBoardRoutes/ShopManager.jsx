@@ -20,7 +20,7 @@ const ShopManager = () => {
       }).then((result) => {
           if (result.isConfirmed) {
 
-            fetch(`https://inventory-managment-sarver.vercel.app/products/${id}`, {
+            fetch(`http://localhost:5000/products/${id}`, {
               method: 'DELETE'
           })
           .then(res => res.json())
