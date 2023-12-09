@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import useAuth from "./useAuth";
-// hook is not use yet
+
 const useSingleUser = () => {
     const user=useAuth()
     const [singleUser, setSingleUser]=useState({})
